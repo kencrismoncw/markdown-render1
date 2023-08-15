@@ -5,7 +5,7 @@
             "```Azure Blob Storage``` is a service that provides object storage for the cloud. Objects stored in a Blob Storage can be of any type."
         ],
         "kpmg-purpose": [ 
-            "Guidance and Security requirements for standing up and using an Azure Blob Storage SKU in an application."
+            "Added this text: Guidance and Security requirements for standing up and using an Azure Blob Storage SKU in an application."
         ],
         "kpmg-who": [ 
             "Intended for ```Project Management``` and ```Development Teams``` and ```Security Architects or Security Relationship Managers``` looking to either use an Azure Blob Storage in their application or audit/review an applications use of an Azure Blob Storage." 
