@@ -28,3 +28,7 @@ if __name__ == "__main__":
   output_path = "output.md"
 
   render_markdown(template_path, json_path, output_path)
+
+  # Next steps
+  # - Consume all aspects from command shell JSON input, Template input, output destination.
+  # - Embed this into an Action.
