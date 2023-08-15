@@ -30,6 +30,8 @@ jobs:
           python ./scripts/mustache.py ./documents/templates/doctemplate.tpl ./documents/json/doc1.json ./documents/doc1.md
       - name: Add all changes to the repo.
         run: |
+          git config --global user.email "kencrismon@crismonicwave.com"
+          git config --global user.name "Ken Crismon"
           git add -A
           git commit -m "Rendered Markdown"
       - name: Push changes
