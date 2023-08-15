@@ -1,0 +1,45 @@
+name: Render Markdown
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.pdf'
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.pdf'    
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install pystache
+      - name: Render Markdown
+        run: |
+          python ./documents/scripts/mustache.py
+      - name: Check if output.md exists
+        run: |
+          if [ -f ./documents/scripts/output.md ]; then
+            sha = $(git rev-parse HEAD)
+            output_md_sha = $(cat output.md | shasum -a 256 | cut -d ' ' -f 1)
+            if [ "$sha" == "$output_md_sha" ]; then
+              echo "Output.md has not changed, skipping commit."
+              exit 0
+            fi
+          fi
+          git add output.md
+          git commit -m "Rendered Markdown"
+      - name: Push changes
+        run: |
+          git push
