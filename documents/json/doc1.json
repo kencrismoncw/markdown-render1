@@ -1,3 +1,134 @@
 {
-    "data" : "World!!"
+    "asset": {
+        "name": "Azure Blob Storage",
+        "description": [
+            "```Azure Blob Storage``` is a service that provides object storage for the cloud. Objects stored in a Blob Storage can be of any type."
+        ],
+        "kpmg-purpose": [ 
+            "Guidance and Security requirements for standing up and using an Azure Blob Storage SKU in an application."
+        ],
+        "kpmg-who": [ 
+            "Intended for ```Project Management``` and ```Development Teams``` and ```Security Architects or Security Relationship Managers``` looking to either use an Azure Blob Storage in their application or audit/review an applications use of an Azure Blob Storage." 
+        ],
+        "kpmg-what": [ 
+            "Provide clear and concise guidance on how to deploy and use an Azure Blob Storage in the appropriate secure way." 
+        ],
+        "kpmg-why": [ 
+            "Azure Blob Storage often is used as transitory storage for an application and as such often either long term or short term holds sensitive data.  Due to this use case, proper security controls must be in place, especially when sensitive data is moving into or out of the Storage." 
+        ],
+        "controls": [
+            {
+                "id": "A1",
+                "title": "Enable encryption for Azure Blob Storage",
+                "description": "This control ensures that Azure Blob Storage data is encrypted at rest.",
+                "objective": "To protect Azure Blob Storage data from unauthorized access.",
+                "implementation": {
+                    "steps": [
+                        {
+                            "step": "Enable encryption for Azure Blob Storage.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/encryption-how-to"
+                        }
+                    ]
+                },
+                "audit": {
+                    "steps": [
+                        {
+                            "step": "Verify that Azure Blob Storage is encrypted.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/encryption-how-to#verify-encryption"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "A2",
+                "title": "Configure access control for Azure Blob Storage",
+                "description": "This control ensures that only authorized users can access Azure Blob Storage data.",
+                "objective": "To protect Azure Blob Storage data from unauthorized access.",
+                "implementation": {
+                    "steps": [
+                        {
+                            "step": "Configure access control for Azure Blob Storage.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/access-control-overview"
+                        }
+                    ]
+                },
+                "audit": {
+                    "steps": [
+                        {
+                            "step": "Verify that access control is configured for Azure Blob Storage.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/access-control-overview#verify-access-control"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "A3",
+                "title": "Monitor Azure Blob Storage for threats",
+                "description": "This control ensures that Azure Blob Storage is monitored for threats.",
+                "objective": "To detect and respond to threats to Azure Blob Storage data.",
+                "implementation": {
+                    "steps": [
+                        {
+                            "step": "Configure Azure Blob Storage monitoring.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/monitoring"
+                        }
+                    ]
+                },
+                "audit": {
+                    "steps": [
+                        {
+                            "step": "Verify that Azure Blob Storage is being monitored.",
+                            "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/monitoring#verify-monitoring"
+                        }
+                    ]
+                }
+            }
+        ],
+        "implementation": {
+            "steps": [
+                {
+                    "step": "Create an Azure Blob Storage account.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-create-account"
+                },
+                {
+                    "step": "Create a blob container.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-use-blobs-portal"
+                },
+                {
+                    "step": "Upload a blob to the blob container.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-upload-blobs"
+                }
+            ]
+        },
+        "audit": {
+            "steps": [
+                {
+                    "step": "Verify that the Azure Blob Storage account exists.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-verify-account"
+                },
+                {
+                    "step": "Verify that the blob container exists.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-verify-container"
+                },
+                {
+                    "step": "Verify that the blob exists in the blob container.",
+                    "reference": "https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-verify-blob"
+                }
+            ]
+        },
+        "references": {
+            "kpmg-refs": [
+                {
+                    "title": "KPMG Data Classification Standard",
+                    "http-url": "https://google.com"
+                }
+            ],
+            "external-refs": [
+                {
+                    "title": "NIST 800.218",
+                    "http-url": "https://www.google.com"
+                }
+            ]
+        }
+    }
 }
