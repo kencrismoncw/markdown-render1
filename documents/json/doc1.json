@@ -19,7 +19,7 @@
         "controls": [
             {
                 "id": "A1",
-                "title": "Enable encryption for Azure Blob Storage",
+                "title": "Enable encryption for Azure Blob Storage from KEN",
                 "description": "This control ensures that Azure Blob Storage data is encrypted at rest.",
                 "objective": "To protect Azure Blob Storage data from unauthorized access.",
                 "implementation": {
