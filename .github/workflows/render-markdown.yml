@@ -29,19 +29,18 @@ jobs:
           python -m pip install pystache
       - name: Render Markdown
         run: |
-          cd ./documents.scripts
-          python ./mustache.py
-      - name: Check if output.md exists
+          python ./scripts/mustache.py ./documents/templates/doctemplate.tpl ./documents/json/doc1.json ./documents/doc1.md
+      - name: Check if doc1.md exists
         run: |
-          if [ -f ./documents/scripts/output.md ]; then
+          if [ -f ./documents/doc1.md ]; then
             sha = $(git rev-parse HEAD)
             output_md_sha = $(cat output.md | shasum -a 256 | cut -d ' ' -f 1)
             if [ "$sha" == "$output_md_sha" ]; then
-              echo "Output.md has not changed, skipping commit."
+              echo "doc1.md has not changed, skipping commit."
               exit 0
             fi
           fi
-          git add output.md
+          git add -A
           git commit -m "Rendered Markdown"
       - name: Push changes
         run: |

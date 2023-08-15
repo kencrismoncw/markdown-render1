@@ -1,5 +1,6 @@
 import json
 import pystache
+import sys
 
 def render_markdown(template_path, json_path, output_path):
   """Renders a Markdown file from a mustache template and a JSON file.
@@ -22,12 +23,23 @@ def render_markdown(template_path, json_path, output_path):
   with open(output_path, "w") as f:
     f.write(rendered_markdown)
 
-if __name__ == "__main__":
-  template_path = "../templates/doctemplate.tpl"
-  json_path = "../json/doc1.json"
-  output_path = "output.md"
+def main():
+  templatefile = sys.argv[1]
+  jsonfile = sys.argv[2]
+  markdownfile = sys.argv[3]
+
+  print(f"Template file: {templatefile}")
+  print(f"JSON file: {jsonfile}")
+  print(f"Markdown file: {markdownfile}")
+
+  template_path = templatefile
+  json_path = jsonfile
+  output_path = markdownfile
 
   render_markdown(template_path, json_path, output_path)
+
+if __name__ == "__main__":
+  main()
 
   # Next steps
   # - Consume all aspects from command shell JSON input, Template input, output destination.
