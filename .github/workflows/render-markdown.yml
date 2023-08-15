@@ -32,14 +32,6 @@ jobs:
           python ./scripts/mustache.py ./documents/templates/doctemplate.tpl ./documents/json/doc1.json ./documents/doc1.md
       - name: Check if doc1.md exists
         run: |
-          if [ -f ./documents/doc1.md ]; then
-            sha = $(git rev-parse HEAD)
-            output_md_sha = $(cat doc1.md | shasum -a 256 | cut -d ' ' -f 1)
-            if [ "$sha" == "$output_md_sha" ]; then
-              echo "doc1.md has not changed, skipping commit."
-              exit 0
-            fi
-          fi
           git add -A
           git commit -m "Rendered Markdown"
       - name: Push changes
