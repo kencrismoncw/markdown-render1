@@ -30,7 +30,7 @@ jobs:
       - name: Render Markdown
         run: |
           python ./scripts/mustache.py ./documents/templates/doctemplate.tpl ./documents/json/doc1.json ./documents/doc1.md
-      - name: Check if doc1.md exists
+      - name: Add all changes to the repo.
         run: |
           git add -A
           git commit -m "Rendered Markdown"
