@@ -34,7 +34,7 @@ jobs:
         run: |
           if [ -f ./documents/doc1.md ]; then
             sha = $(git rev-parse HEAD)
-            output_md_sha = $(cat output.md | shasum -a 256 | cut -d ' ' -f 1)
+            output_md_sha = $(cat doc1.md | shasum -a 256 | cut -d ' ' -f 1)
             if [ "$sha" == "$output_md_sha" ]; then
               echo "doc1.md has not changed, skipping commit."
               exit 0
