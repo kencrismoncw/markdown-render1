@@ -6,12 +6,14 @@ on:
     paths-ignore:
       - '**/*.md'
       - '**/*.pdf'
+      - '**/*.yml'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
     paths-ignore:
       - '**/*.md'
-      - '**/*.pdf'    
+      - '**/*.pdf'
+      - '**/*.yml'
 
 jobs:
   render:
@@ -27,7 +29,8 @@ jobs:
           python -m pip install pystache
       - name: Render Markdown
         run: |
-          python ./documents/scripts/mustache.py
+          cd ./documents.scripts
+          python ./mustache.py
       - name: Check if output.md exists
         run: |
           if [ -f ./documents/scripts/output.md ]; then
